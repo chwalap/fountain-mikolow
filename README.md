@@ -12,7 +12,7 @@ This guide provides instructions on how to set up and run the MP3 Player project
 1. **Clone the Repository**: Clone the project repository to your Raspberry Pi.
 
     ```bash
-    git clone (https://github.com/chwalap/fountain-mikolow.git)
+    git clone https://github.com/chwalap/fountain-mikolow.git
     cd fountain-mikolow
     ```
 
