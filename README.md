@@ -69,7 +69,7 @@ Before running the application, ensure to configure the following:
 To run the MP3 Player, use the following command:
 
 ```bash
-python main.py
+python3 main.py
 ```
 
 This will start the MP3 Player according to the configurations set in your files.
