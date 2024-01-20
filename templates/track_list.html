@@ -1,0 +1,26 @@
+<script type="text/javascript">
+  var tracks = {{ tracks_json|safe }};
+</script>
+
+<link rel="stylesheet" href="static/css/track_list-style.css">
+<script src="static/js/track_list-scripts.js"></script>
+
+<div class="track-section">
+  <div class="title-container">
+    <h2>Utwory</h2>
+    <input type="text" id="track-search" placeholder="Szukaj...">
+  </div>
+  <p id="no-entries-message" {% if tracks|length > 0 %} class="hidden" {% endif %}>Brak dostępnych utworów.</p>
+  <ul id="track-list">
+    {% for track in tracks %}
+      <li class="track-list-item" id="track-{{ track['id'] }}">
+        <div class="track-item">
+          <span class="track-name">{{ track['name'] }}</span>
+          <span class="track-arrow right-arrow">
+            <i class="fas fa-arrow-right"></i>
+          </span>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
