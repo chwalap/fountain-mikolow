@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/settings-style.css') }}">
+<script src="{{ url_for('static', filename='js/settings-scripts.js') }}"></script>
+
+<div class="main-content">
+  <div class="settings-view">
+    <div class="title-container">
+      <h2><span>Ustawienia</span></h2>
+    </div>
+
+    <div class="setting-group">
+      <label for="audio-output">Wyjście audio</label>
+      <select id="audio-output" name="audio-output">
+        {% for device in audio_devices %}
+        <option value="{{ device }}" {% if settings['audio_output'] == device %}selected{% endif %}>{{ device }}</option>
+      {% endfor %}
+      </select>
+    </div>
+
+    <div class="setting-group">
+      <label for="player-always-on-top">Odtwarzacz zawsze na wierzchu</label>
+      <label class="switch">
+        <input type="checkbox" id="player-always-on-top" {% if settings['player_always_on_top'] %}checked{% endif %}>
+        <span class="slider round"></span>
+      </label>
+    </div>
+
+    <div class="setting-group">
+      <div>
+        <label>Godziny pracy</label>
+      </div>
+      <div>
+        <div class="time-container">
+          <span class="label">Od</span>
+          <input type="time" id="from-time" value="{{ settings['working_from'] }}">
+        </div>
+        <div class="time-container">
+          <span class="label">Do</span>
+          <input type="time" id="to-time" value="{{ settings['working_to'] }}">
+        </div>
+      </div>
+    </div>
+
+    <div class="setting-group">
+      <div>
+        <label for="reload-tracks">Lista utworów</label>
+      </div>
+      <div>
+        <button id="reload-tracks" name="reload-tracks">Odśwież</button>
+      </div>
+    </div>
+
+    <div class="setting-group">
+      <div>
+        <label for="new-password">Zmień hasło</label>
+      </div>
+      <div class="password-group">
+        <input id="new-password" name="new-password" type="password">
+        <button id="save-password">Zmień hasło</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
